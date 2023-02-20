@@ -1,0 +1,44 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:RomanNumbersCalculator.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="500"
+			Width="400" Height="500"
+        x:Class="RomanNumbersCalculator.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="RomanNumbersCalculator">
+
+	<Grid RowDefinitions="1*, 4*">
+		<TextBlock Grid.Row="0" Text="{Binding CurrentNumberRepresentation, Mode=OneWay}" FontSize="50"/>
+		<Grid Grid.Row="1" ColumnDefinitions="3*, 1*">
+			<Grid.Styles>
+				<Style Selector="Button">
+					<Setter Property="VerticalContentAlignment" Value="Center"/>
+					<Setter Property="HorizontalContentAlignment" Value="Center"/>
+					<Setter Property="Width" Value="100"/>
+				</Style>
+			</Grid.Styles>
+			<WrapPanel Grid.Column="0">
+				<WrapPanel.Styles>
+					<Style Selector="Button">
+						<Setter Property="Height" Value="100"/>
+					</Style>
+				</WrapPanel.Styles>
+				<Button Content="I" Command="{Binding ButtonAddClick}" CommandParameter="I"/>
+				<Button Content="C" Command="{Binding ButtonAddClick}" CommandParameter="C"/>
+				<Button Content="+" Command="{Binding PlusClick}"/>
+				<Button Content="V" Command="{Binding ButtonAddClick}" CommandParameter="V"/>
+				<Button Content="D" Command="{Binding ButtonAddClick}" CommandParameter="D"/>
+				<Button Content="-" Command="{Binding SubClick}"/>
+				<Button Content="X" Command="{Binding ButtonAddClick}" CommandParameter="X"/>
+				<Button Content="M" Command="{Binding ButtonAddClick}" CommandParameter="M"/>
+				<Button Content="*" Command="{Binding MulClick}"/>
+				<Button Content="L" Command="{Binding ButtonAddClick}" CommandParameter="L"/>
+				<Button Content="CE" Command="{Binding ButtonCleClick}"/>
+				<Button Content="/" Command="{Binding DivClick}"/>	
+			</WrapPanel>
+			<Button Grid.Column="1" Content="=" Command="{Binding CalClick}" Height="400"/>
+		</Grid>
+	</Grid>
+</Window>
